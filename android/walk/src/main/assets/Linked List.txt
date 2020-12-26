@@ -1,0 +1,234 @@
+{
+    "functions": [
+        {
+            "name": "Create",
+            "sequential": false,
+            "introduction":"Function to create a node",
+            "instructions": [
+                {
+                    "instruction": "Create a node (the main building block) by tapping on the green icon",
+                    "blockBehaviour": {
+                        "node": "drag",
+                        "node_icon":"currentBlock"
+                    }
+                },
+                {
+                    "instruction": "Enter number to be stored in the node",
+                    "blockBehaviour":{
+                        "data_input":"visible"
+                    }
+
+                },
+                {
+                    "instruction": "Attach the next pointer (add the link in the linked list)",
+                    "blockBehaviour":{
+                        "pointer_icon":"currentBlock"
+                    }
+                }
+            ],
+            "pseudocode": [
+                "record node{\n\n\n}",
+                "\tdata;",
+                "\tnode next"
+            ],
+            "outro":"The pointer contains address of the next node."
+        },
+        {
+            "name": "Traverse",
+            "parameters":[
+                "destinationNode"
+            ],
+            "sequential": true,
+            "introduction": "To access a particular node in the linked list",
+            "instructions": [
+                {
+                    "instruction": "Mark the Head(first node) of the linked list",
+                    "blockBehaviour": {
+                        "node": "head"
+                    }
+                },
+                {
+                    "instruction": "Mark the end point of traversal(last node)",
+                     "blockBehaviour": {
+                        "node": "highlight"
+                     }
+                },
+                {
+                    "instruction": "Select the next pointer to go to the next node(long press on pointer)"
+                }
+            ],
+            "pseudocode": [
+                "node := list.firstNode",
+                "while node not null\r ",
+                "         node := node.next"
+            ],
+            "outro":"Great. To use the traverse function, pass the destination as parameter"
+        },
+        {
+            "name": "Insert",
+            "parameters":[
+                "destinationNode"
+            ],
+            "sequential": true,
+            "introduction":"Inserting a new node at the 2nd position in the linked list",
+            "instructions": [
+                {
+                    "instruction": "Get a new node (Call the Create function)",
+                     "blockBehaviour": {
+                        "node": "reset",
+                        "blockToHighlight":"functions"
+                     },
+                     "functionToCall":"Create"
+                },
+                {
+                    "instruction": "Traverse to the 2nd node(Call traverse function)",
+                    "functionToCall":"Traverse"
+                },
+                {
+                    "instruction": "Copy the address to the 3rd node(Long press its pointer)",
+                    "blockBehaviour": {
+                        "pointer": "copy"
+                    }
+                },
+                {
+                    "instruction": "Assign the copied pointer to the new node(Long press the pointer)",
+                    "blockBehaviour": {
+                        "pointer": "assign"
+                    }
+
+                },
+                {
+                    "instruction": "Connect the current node to the new node(Drag the node to its position)",
+                    "blockBehaviour":{
+                        "node":"space"
+                    }
+                }
+            ],
+            "pseudocode": [
+                "newNode := CreateNode()",
+                "node := Traverse(destination)",
+                "tempAddress:= node.next",
+                "newNode.next := tempAddress",
+                "node.next := newNode"
+            ],
+            "outro":"To use insert node, pass the destination"
+        },
+        {
+            "name": "Insert Beginning",
+            "parameters":[
+                "head"
+            ],
+            "sequential": true,
+            "introduction":"A new node at the beginning (new Head node)",
+            "instructions":[
+                {
+                    "instruction": "Get a new node(Call the Create function)"
+
+                },
+                {
+                    "instruction": "Mark the first node(Head)",
+                     "blockBehaviour": {
+                        "node": "head"
+                     }
+                },
+                {
+                    "instruction": "Connect the new node to the Head node",
+                    "blockBehaviour": {
+                        "node": "reset"
+                    }
+                },
+                {
+                    "instruction": "Make the new node as the Head",
+                     "blockBehaviour":{
+                        "node": "head"
+                     }
+                }
+            ],
+            "pseudocode": [
+                "newNode := CreateNode()",
+                "node := list.firstNode",
+                "newNode.next := node.next",
+                "list.firstNode := newNode"
+            ],
+            "outro":"Pass the Head node to use this function"
+        },
+        {
+            "name": "Delete",
+            "parameters":[
+                "deleteIndex"
+            ],
+            "sequential": true,
+            "introduction":"Delete the 3rd node",
+            "instructions": [
+                {
+                    "instruction": "Traverse to the 2nd node",
+                    "functionToCall":"Traverse"
+                },
+                {
+                    "instruction": "Mark the 3rd node to delete",
+                     "blockBehaviour":{
+                        "node": "delete"
+                     }
+
+                },
+                {
+                    "instruction": "Connect 2nd node to the 4th node"
+                },
+                {
+                    "instruction": "Destroy the 3rd node",
+                     "blockBehaviour":{
+                        "node": "destroy"
+                     }
+                }
+            ],
+            "pseudocode": [
+                "node = Traverse()",
+                "nodeToDelete := node.next",
+                "node.next := nodeToDelete.next",
+                "destroy nodeToDelete"
+            ],
+            "outro":"Pass the node to be deleted to use this function"
+        },
+        {
+            "name": "Delete Beginning",
+            "parameters":[
+                "head"
+            ],
+            "sequential": true,
+            "introduction":"Delete the first node(Head)",
+            "instructions": [
+                {
+                    "instruction": "Mark the first node(Head)",
+                    "blockBehaviour": {
+                        "node": "highlight"
+                    }
+                },
+                {
+                    "instruction": "Make the next node as the Head node"
+                },
+                {
+                    "instruction": "Destroy the red node",
+                     "blockBehaviour":{
+                        "node": "destroy"
+                     }
+
+                }
+            ],
+            "pseudocode": [
+                "node := list.firstNode",
+                "list.firstNode := node.next",
+                "destroy nodeToDelete"
+            ],
+            "outro":"Pass the Head node to use this function"
+        }
+    ],
+    "games":[
+        {
+            "name":"Delete the 3rd node",
+            "state":{
+                "size":"4"
+            }
+        }
+    ]
+
+}

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/first_screen_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fdf6e3"
+    tools:context=".fragments.FirstScreen">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/what"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/linked_list_what"
+        android:textColor="#586e75"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/how"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/how_to_learn"
+        android:textColor="#586e75"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="@+id/what"
+        app:layout_constraintTop_toBottomOf="@+id/what" />
+
+    <TextView
+        android:id="@+id/functions_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/linked_list_all_functions"
+        android:textColor="#586e75"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="@+id/what"
+        app:layout_constraintTop_toBottomOf="@+id/how_answer" />
+
+    <Button
+        android:id="@+id/start_algorithm"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:fontFamily="@font/roboto"
+        android:onClick="onClick"
+        android:text="@string/start_caps"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/def"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/linked_list_def"
+        android:textColor="#268bd2"
+        app:layout_constraintStart_toStartOf="@+id/what"
+        app:layout_constraintTop_toBottomOf="@+id/what" />
+
+    <TextView
+        android:id="@+id/how_answer"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/linked_list_how_to"
+        android:textColor="#268bd2"
+        app:layout_constraintStart_toStartOf="@+id/what"
+        app:layout_constraintTop_toBottomOf="@+id/how" />
+
+    <TextView
+        android:id="@+id/functions_list_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/linked_list_functions"
+        android:textColor="#268bd2"
+        app:layout_constraintStart_toStartOf="@+id/what"
+        app:layout_constraintTop_toBottomOf="@+id/functions_list" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/linked_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.342"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/def" />
+
+</android.support.constraint.ConstraintLayout>
